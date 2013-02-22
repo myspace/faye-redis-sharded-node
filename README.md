@@ -30,7 +30,7 @@ var bayeux = new faye.NodeAdapter({
   timeout:  25,
   engine: {
     type:  redis,
-    hosts: ['redis-server-1:6397','redis-server-1:6380', 'redis-server-2:'6379']
+    hosts: ['redis-server-1:6397','redis-server-1:6380', 'redis-server-2:6379']
     // more options
   }
 });
@@ -52,13 +52,13 @@ The hosts option can take two forms:
 
 ```js
   // a flat array -- each server will be treated as a host
-  var hosts = ['redis-server-1:6397','redis-server-1:6380', 'redis-server-2:'6379']
+  var hosts = ['redis-server-1:6397','redis-server-1:6380', 'redis-server-2:6379']
 
   // an array of arrays -- the first nested array will be treated as the "primary" cluster
   // all nested arrays after the first one will be treated as "secondary" clusters and will only receive publishes
   // this version is useful if you have Faye running in multiple datacenters and publishes must be pushed to both
   var hosts = [
-    ['redis-server-1:6397','redis-server-1:6380', 'redis-server-2:'6379'], // primary cluster
+    ['redis-server-1:6397','redis-server-1:6380', 'redis-server-2:6379'], // primary cluster
     ['redis-server-4:6397','redis-server-4:6380'], // secondary cluster
     ['redis-server-5:6397','redis-server-5:6380'] // secondary cluster
   ];
