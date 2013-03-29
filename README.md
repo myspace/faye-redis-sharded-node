@@ -41,26 +41,64 @@ server.listen(8000);
 
 The full list of settings is as follows.
 
-* <b><tt>hosts</tt></b> - an array of <hostname>:<port> strings for Redis, or a nested array (see Hosts section)
+* <b><tt>host</tt></b> - hostname of your Redis instance
 * <b><tt>port</tt></b> - port number, default is `6379`
+* <b><tt>password</tt></b> - password, if `requirepass` is set
 * <b><tt>database</tt></b> - number of database to use, default is `0`
+* <b><tt>shards</tt></b> - an array of shards to instead of a single redis instance. Each shard has the following options:
+     host, port, password, database, shardName.
+     See the Shards section for more info.
 * <b><tt>namespace</tt></b> - prefix applied to all keys, default is `''`
 
-### Hosts
+### Shards
 
-The hosts option can take two forms:
+The shards option can take two forms:
 
 ```js
-  // a flat array -- each server will be treated as a host
-  var hosts = ['redis-server-1:6397','redis-server-1:6380', 'redis-server-2:6379']
+  // a flat array -- each member of the array will be a redis instance to connect to
+  var shards = [
+    {
+      shardName: 'redis-1', // unique shard name used for consistent hashing -- if not supplied, will default to "host + ':' + port"
+      host: 'redis-server-1.example.com', // required
+      port: 6397, // required
+      password: 'password', // optional
+      database: 0, // optional
+    },
+    {
+      shardName: 'redis-2',
+      host: 'redis-server-2.example.com',
+      port: 6398
+    }
+  ];
 
-  // an array of arrays -- the first nested array will be treated as the "primary" cluster
+  // an array of arrays -- the first nested array will be treated as the "primary" shard cluster
   // all nested arrays after the first one will be treated as "secondary" clusters and will only receive publishes
   // this version is useful if you have Faye running in multiple datacenters and publishes must be pushed to both
-  var hosts = [
-    ['redis-server-1:6397','redis-server-1:6380', 'redis-server-2:6379'], // primary cluster
-    ['redis-server-4:6397','redis-server-4:6380'], // secondary cluster
-    ['redis-server-5:6397','redis-server-5:6380'] // secondary cluster
+  var shards = [
+    [{ // primary shard
+      host: 'datacenter1-redis.example.com',
+      port: 6397
+    },
+    {
+      host: 'datacenter1-redis.example.com',
+      port: 6398
+    }],
+    [{ // secondary shard
+      host: 'datacenter2-redis.example.com',
+      port: 6397
+    },
+    {
+      host: 'datacenter2-redis.example.com',
+      port: 6398
+    }],
+    [{ // secondary shard
+      host: 'datacenter3-redis.example.com',
+      port: 6397
+    },
+    {
+      host: 'datacenter3-redis.example.com',
+      port: 6398
+    }],
   ];
 ```
 
