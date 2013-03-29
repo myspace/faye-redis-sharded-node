@@ -1,0 +1,14 @@
+=== 0.2.0 / 2013-03-29
+
+* BREAKING CHANGE: Remove hosts option -- use new shards option instead.
+* Add shards option. Must explicitly specify host/port per shard.
+* Pass in per-shard options (password, database).
+* Optional ability to provide a shard name (should be unique between shards in the same datacenter).
+
+=== 0.1.1 / 2013-02-27
+
+* Add password as an option (same password between all shards)
+
+=== 0.1.0 / 2013-02-22
+
+* Initial release
