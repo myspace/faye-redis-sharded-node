@@ -1,3 +1,13 @@
+=== 0.2.3 / 2013-05-16
+* Unpeg redis minor version
+* Fix issue where retry_delay and retry_backoff gets reset when it connects
+
+=== 0.2.2 / 2013-05-16
+* Allow user to pass in redisOptions that get sent down to the redis client.
+
+=== 0.2.1 / 2013-05-14
+* Peg redis at 0.8.2 to try to resolve memory leak
+
 === 0.2.0 / 2013-03-29
 
 * BREAKING CHANGE: Remove hosts option -- use new shards option instead.
