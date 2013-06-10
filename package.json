@@ -3,7 +3,7 @@
   "description":"Redis backend engine for Faye with support for sharding",
   "author":"Myspace",
   "keywords":["faye", "faye-redis", "pubsub", "bayeux"],
-  "version":"0.2.3",
+  "version":"0.2.4",
   "engines":{
     "node":">=0.4.0"
   },
