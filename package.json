@@ -9,7 +9,7 @@
   },
   "main":"./index",
   "dependencies":{
-    "redis":"0.8.x"
+    "redis":"0.11.x"
   },
   "licenses":[{
     "type":"MIT",
