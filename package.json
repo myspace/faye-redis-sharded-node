@@ -14,6 +14,8 @@
   },
   "main": "./index",
   "dependencies": {
+    "async": "^0.9.0",
+    "lodash": "^2.4.1",
     "redis": "0.11.x"
   },
   "licenses": [
@@ -31,5 +33,7 @@
   "devDependencies": {
     "jstest": ""
   },
-  "scripts": {"test": "node spec/runner.js"}
+  "scripts": {
+    "test": "node spec/runner.js"
+  }
 }
