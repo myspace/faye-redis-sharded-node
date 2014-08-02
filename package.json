@@ -29,7 +29,7 @@
     }
   ],
   "devDependencies": {
-    "jstest": "^1.0.5"
+    "jstest": ""
   },
   "scripts": {"test": "node spec/runner.js"}
 }
