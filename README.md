@@ -1,4 +1,4 @@
-# faye-redis-sharded
+# faye-redis-sharded [![Build Status](https://travis-ci.org/zwily/faye-redis-sharded-node.svg?branch=master)](https://travis-ci.org/zwily/faye-redis-sharded-node)
 
 This plugin provides a Redis-based backend for the [Faye](http://faye.jcoglan.com)
 messaging server. It allows a single Faye service to be distributed across many
@@ -30,7 +30,16 @@ var bayeux = new faye.NodeAdapter({
   timeout:  25,
   engine: {
     type:  redis,
-    hosts: ['redis-server-1:6397','redis-server-1:6380', 'redis-server-2:6379']
+    shards: [{
+      host: 'redis-server-1',
+      port: 6397
+    }, {
+      host: 'redis-server-1',
+      port: 6380
+    }, {
+      host: 'redis-server-2',
+      port: 6379
+    }]
     // more options
   }
 });
@@ -116,6 +125,13 @@ one server.
 3. Ability to specify server weights via the hosts field.
 4. Ability to provide a custom shard manager so users can add their own implementations.
 5. Ability to perform resharding of keys when hosts change
+
+## Running Tests
+
+```bash
+$ make
+$ npm test
+```
 
 ## License
 
