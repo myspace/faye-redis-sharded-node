@@ -30,7 +30,16 @@ var bayeux = new faye.NodeAdapter({
   timeout:  25,
   engine: {
     type:  redis,
-    hosts: ['redis-server-1:6397','redis-server-1:6380', 'redis-server-2:6379']
+    shards: [{
+      host: 'redis-server-1',
+      port: 6397
+    }, {
+      host: 'redis-server-1',
+      port: 6380
+    }, {
+      host: 'redis-server-2',
+      port: 6379
+    }]
     // more options
   }
 });
