@@ -117,6 +117,13 @@ one server.
 4. Ability to provide a custom shard manager so users can add their own implementations.
 5. Ability to perform resharding of keys when hosts change
 
+## Running Tests
+
+```bash
+$ make
+$ npm test
+```
+
 ## License
 
 (The MIT License)

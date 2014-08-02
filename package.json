@@ -1,22 +1,35 @@
 {
-  "name":"faye-redis-sharded",
-  "description":"Redis backend engine for Faye with support for sharding",
-  "author":"Myspace",
-  "keywords":["faye", "faye-redis", "pubsub", "bayeux"],
-  "version":"0.2.4",
-  "engines":{
-    "node":">=0.4.0"
+  "name": "faye-redis-sharded",
+  "description": "Redis backend engine for Faye with support for sharding",
+  "author": "Myspace",
+  "keywords": [
+    "faye",
+    "faye-redis",
+    "pubsub",
+    "bayeux"
+  ],
+  "version": "0.2.4",
+  "engines": {
+    "node": ">=0.4.0"
   },
-  "main":"./index",
-  "dependencies":{
-    "redis":"0.11.x"
+  "main": "./index",
+  "dependencies": {
+    "redis": "0.11.x"
   },
-  "licenses":[{
-    "type":"MIT",
-    "url":"http://www.opensource.org/licenses/mit-license.php"
-  }],
-  "repositories":[{
-    "type":"git",
-    "url":"git@github.com:myspace/faye-redis-sharded-node.git"
-  }]
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@github.com:myspace/faye-redis-sharded-node.git"
+    }
+  ],
+  "devDependencies": {
+    "jstest": "^1.0.5"
+  },
+  "scripts": {"test": "node spec/runner.js"}
 }
