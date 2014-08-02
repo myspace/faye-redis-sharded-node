@@ -1,4 +1,4 @@
-# faye-redis-sharded
+# faye-redis-sharded [![Build Status](https://travis-ci.org/zwily/faye-redis-sharded-node.svg?branch=master)](https://travis-ci.org/zwily/faye-redis-sharded-node)
 
 This plugin provides a Redis-based backend for the [Faye](http://faye.jcoglan.com)
 messaging server. It allows a single Faye service to be distributed across many
